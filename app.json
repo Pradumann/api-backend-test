@@ -1,5 +1,4 @@
 {
     "name": "Not alone backend",
-    "description": "A barebones Node.js app using express 4",
-    
+    "description": "A barebones Node.js app using express 4"
 }
