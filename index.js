@@ -29,13 +29,13 @@ mongoose.connection.on('error', err => {
 require('./models/User')
 const authRoutes = require('./routes/authRoutes')
 const testRoute = require('./routes/testRoute')
-const userRoutes = require('./routes/userRoutes')
+// const userRoutes = require('./routes/userRoutes')
 app.use(bodyParser.json())
 
 // Routes
 app.use(authRoutes)
 app.use(testRoute)
-app.use(userRoutes)
+// app.use(userRoutes)
 
 app.post('/', (req, res) => {
   console.log(req.body)
