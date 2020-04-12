@@ -27,7 +27,6 @@ mongoose.connection.on('error', (err) => {
 
 // App Set Up
 require('./models/User')
-const verifyToken = require('./middleware/requireToken')
 const authRoutes = require('./routes/authRoutes')
 const testRoute = require('./routes/testRoute')
 app.use(bodyParser.json())
@@ -40,10 +39,6 @@ app.post('/', (req, res) => {
   console.log(req.body)
   res.send('hello')
 })
-
-// app.get('/', verifyToken, (req, res) => {
-//   res.send('Your email is ' + req.user.email)
-// })
 
 app.listen(PORT, () => {
   console.log('server running ' + PORT) // mongodb://heroku_0lhxg6th:5nnv3u2oo3drssi40o8emoqgho@ds359868.mlab.com:59868/heroku_0lhxg6th
