@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-// const UserProfile = mongoose.model('UserProfile')
+const Profile = require('../models/Profile')
 const verifyToken = require('../middleware/requireToken')
 
 router.post('/saveUserProfile', verifyToken, async (req, res) => {
