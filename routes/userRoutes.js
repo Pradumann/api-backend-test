@@ -5,7 +5,7 @@ const UserProfile = mongoose.model('UserProfile')
 const verifyToken = require('../middleware/requireToken')
 
 router.post('/saveUserProfile', verifyToken, async (req, res) => {
-  res.send('Your email is awesome')
+  return res.status(200).send('Your email is awesome')
 })
 
 module.exports = router
