@@ -35,7 +35,7 @@ app.use(bodyParser.json())
 // Routes
 app.use(authRoutes)
 app.use(testRoute)
-// app.use(userRoutes)
+app.use(userRoutes)
 
 app.post('/', (req, res) => {
   console.log(req.body)
