@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 // const bcrypt = require('../index.js').bcrypt
 
-const userProfileSchema = new mongoose.Schema({
+const UserProfile = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
@@ -26,15 +26,7 @@ const userProfileSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: false
-  },
-  favouriteStories: {
-    type: [
-      {
-        type: String
-      }
-    ],
-    required: false
   }
 })
 
-mongoose.model('UserProfile', userProfileSchema)
+module.exports = mongoose.model('UserProfile', UserProfile)
