@@ -9,12 +9,14 @@ const Profile = new mongoose.Schema({
   email: {
     type: String,
     default: '',
-    trim: true
+    trim: true,
+    unique: true,
+    required: true
   },
   username: {
     type: String,
-    default: '',
-    trim: true
+    trim: true,
+    unique: true
   }
 })
 
