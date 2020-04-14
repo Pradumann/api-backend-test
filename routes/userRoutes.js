@@ -8,7 +8,10 @@ router.post('/saveUserProfile', verifyToken, async (req, res) => {
   try {
     const profile = new Profile(req.body)
     await profile.save()
-    return res.status(200).send(req.body)
+    return res.status(200).send({
+      message: 'Saved successful',
+      profile: req.body
+    })
   } catch (error) {
     return res
       .status(422)
@@ -20,13 +23,37 @@ router.post('/getUserProfile', verifyToken, async (req, res) => {
   try {
     const profile = await Profile.findOne(req.body)
     return res.status(200).send({
-      message: 'User profile is available',
+      message: 'Query successful',
       profile: profile
     })
   } catch (error) {
     return res.status(422).send({
       error: error,
-      message: 'Failed to retrieve user profile'
+      message: 'Failed to retrieve user profile because ' + error.message
+    })
+  }
+})
+
+router.post('/updateUserProfile', verifyToken, async (req, res) => {
+  try {
+    const { email, name, username } = req.body
+    const profile = await Profile.updateOne(
+      {
+        email: email
+      },
+      {
+        name: name,
+        username: username
+      }
+    )
+    return res.status(200).send({
+      message: 'Update successful',
+      profile: profile
+    })
+  } catch (error) {
+    return res.status(422).send({
+      error: error,
+      message: 'Failed to update user profile because ' + error.message
     })
   }
 })
