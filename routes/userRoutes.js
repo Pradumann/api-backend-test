@@ -16,7 +16,7 @@ router.post('/saveUserProfile', verifyToken, async (req, res) => {
   }
 })
 
-router.post('./getUserProfile', verifyToken, async (req, res) => {
+router.post('/getUserProfile', verifyToken, async (req, res) => {
   try {
     const profile = await Profile.find(req.body)
     return res.status(200).send(profile)
