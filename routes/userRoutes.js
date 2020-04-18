@@ -59,17 +59,21 @@ router.post('/updateUserProfile', verifyToken, async (req, res) => {
 })
 
 router.post('/uploadProfilePicture', verifyToken, async (req, res) => {
-  try {
-    return res.status(200).send({
-      message: 'Profile picture updated',
-      picture: ''
-    })
-  } catch (e) {
-    return res.status(422).send({
-      error: e,
-      message: 'Failed to upload profile picutre because ' + e.message
-    })
-  }
+  return res.status(200).send({
+    message: 'Profile picture updated',
+    picture: ''
+  })
+  // try {
+  //   return res.status(200).send({
+  //     message: 'Profile picture updated',
+  //     picture: ''
+  //   })
+  // } catch (e) {
+  //   return res.status(422).send({
+  //     error: e,
+  //     message: 'Failed to upload profile picutre because ' + e.message
+  //   })
+  // }
 })
 
 module.exports = router
