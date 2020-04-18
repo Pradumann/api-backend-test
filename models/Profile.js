@@ -17,6 +17,23 @@ const Profile = new mongoose.Schema({
     type: String,
     trim: true,
     unique: true
+  },
+  phone: {
+    type: String,
+    trim: true,
+    default: '',
+    unique: true
+  },
+  journeyId: {
+    type: String,
+    trim: true,
+    default: '',
+    unique: true
+  },
+  profilePicture: {
+    type: String,
+    trim: true,
+    default: ''
   }
 })
 
