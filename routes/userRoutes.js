@@ -59,7 +59,7 @@ router.post('/updateUserProfile', verifyToken, async (req, res) => {
 })
 
 router.post('/uploadProfilePicture', verifyToken, async (req, res) => {
-  return res.status(200).send({
+  res.status(200).send({
     message: 'Profile picture updated',
     picture: ''
   })
