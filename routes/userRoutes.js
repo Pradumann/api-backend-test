@@ -60,7 +60,7 @@ router.post('/updateUserProfile', verifyToken, async (req, res) => {
 
 router.post('/uploadProfilePicture', verifyToken, async (req, res) => {
   try {
-    const { email, name, username } = req.body
+    const { email, name } = req.body
     const profile = await Profile.updateOne(
       {
         email: email
@@ -77,7 +77,7 @@ router.post('/uploadProfilePicture', verifyToken, async (req, res) => {
   } catch (error) {
     return res.status(422).send({
       error: error,
-      message: 'Failed to update user profile because ' + error.message
+      message: 'Failed to update user profile because ' + error.errMsg
     })
   }
 })
