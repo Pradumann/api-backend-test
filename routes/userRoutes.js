@@ -53,7 +53,7 @@ router.post('/updateUserProfile', verifyToken, async (req, res) => {
   } catch (error) {
     return res.status(422).send({
       error: error,
-      message: 'Failed to update user profile because ' + error.errMsg
+      message: 'Failed to update user profile because - ' + error.errMsg
     })
   }
 })
