@@ -48,36 +48,12 @@ router.post('/updateUserProfile', verifyToken, async (req, res) => {
     )
     return res.status(200).send({
       message: 'Update successful',
-      profile: req.body
+      profile: profile
     })
   } catch (error) {
     return res.status(422).send({
       error: error,
       message: 'Failed to update user profile because ' + error.message
-    })
-  }
-})
-
-router.post('/uploadProfilePicture', verifyToken, async (req, res) => {
-  try {
-    const { email, name } = req.body
-    const profile = await Profile.updateOne(
-      {
-        email: email
-      },
-      {
-        name: name,
-        username: username
-      }
-    )
-    return res.status(200).send({
-      message: 'Update successful',
-      profile: req.body
-    })
-  } catch (error) {
-    return res.status(422).send({
-      error: error,
-      message: 'Failed to update user profile because ' + error.errMsg
     })
   }
 })
